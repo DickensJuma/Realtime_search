@@ -1,0 +1,39 @@
+
+<div class="container">
+  <h1 class="main-heading">Realtime Search Analytics</h1>
+
+  <%= form_with(model: Search.new, url: searches_path, method: :post, local: true, class: 'search-form') do |form| %>
+    <%= form.text_field :query, placeholder: 'Type your search...', class: 'search-input' %>
+    <%= form.submit 'Search', class: 'search-button' %>
+  <% end %>
+
+  <section class="search-section">
+    <h2>All Searches</h2>
+    <ul id="all-searches">
+      <% @all_searches.each do |search| %>
+        <li><%= search.query %></li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="search-section">
+    <h2>Search Results</h2>
+    <%= form_with(url: searches_path, method: :get, class: 'keyword-search-form') do |form| %>
+      <%= form.label :keyword, class: 'form-label' %>
+      <%= form.text_field :keyword, class: 'search-input' %>
+      <%= form.submit 'Search', class: 'search-button' %>
+    <% end %>
+
+    <% if @matching_searches.present? %>
+      <ul id="matching-searches">
+        <% @matching_searches.each do |search| %>
+          <li><%= search.query %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+</div>
+
+<footer>
+  &copy; 2024 Realtime Search Analytics
+</footer>

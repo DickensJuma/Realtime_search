@@ -13,7 +13,6 @@
 - Rails (version 7.1.2)
 - PostgreSQL database
 
-
 ## Installation
 Clone the repository:
 
@@ -71,4 +70,4 @@ This project is licensed under the MIT License.
 <p align="center">
   <strong> HAPPY 😀 & I LOVE PROGRAMMING 💖 </strong>
 </p>
-# Realtime_search
+

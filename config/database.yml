@@ -1,0 +1,23 @@
+# config/database.yml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: realtime_search_dev
+  username:  postgres
+  password:  password
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database:  realtime_search_test
+
+production:
+  <<: *default
+  database:  realtime_search_prod
+  username:  postgres
+  password:  <%= ENV['REALTIME_SEARCH_DATABASE_PASSWORD'] %>
